@@ -18,7 +18,7 @@ describe('home page', () => {
     cy.get(".noResults").should("exist").contains("No hay resultados para su consulta")
   })
 
-  it.only('Search with empty search bar',()=>{
+  it('Search with empty search bar',()=>{
     cy.get("#search-btn").click()
     cy.get(".table-striped").should("exist")
     cy.get('#sortBy').select("popularity_desc").contains("Más popular")
