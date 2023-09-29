@@ -21,6 +21,7 @@ describe('home page', () => {
   it.only('Search with empty search bar',()=>{
     cy.get("#search-btn").click()
     cy.get(".table-striped").should("exist")
+    cy.get('#sortBy').select("popularity_desc").contains("Más popular")
   })
 
   it("Search by relevant criteria",()=>{
