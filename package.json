@@ -1,0 +1,14 @@
+{
+  "name": "try-1",
+  "version": "1.0.0",
+  "description": "prueba 1 ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Diego Carcamo",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^13.3.0"
+  }
+}
