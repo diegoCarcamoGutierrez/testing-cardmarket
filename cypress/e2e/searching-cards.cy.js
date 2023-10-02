@@ -1,3 +1,5 @@
+const { it } = require("mocha")
+
 describe('home page', () => {
 
   beforeEach(()=>{
@@ -48,13 +50,20 @@ describe('home page', () => {
     cy.screenshot()
   })
 
-  it.only("Most expensive and Description screenshot v2",()=>{
+  it("Most expensive and Description screenshot v2",()=>{
     cy.get("#ProductSearchInput").type("Fenrir")
     cy.get("#search-btn").click()
     cy.get('#sortBy').select("Más caras primero")
     cy.get('.filter-form > .btn-primary').click()
     cy.get('.table-body').children(".row.no-gutters").eq(0).children().eq(3).children().children().children().children().eq(0)
     .click()
+    cy.screenshot()
+  })
+
+  it.only("Fith element from the fith page",()=>{
+    cy.get("#ProductSearchInput").type("Magician")
+    cy.get("#search-btn").click()
+    cy.get('.col-12 > .d-flex > .ms-3').click()
   })
 
 })
