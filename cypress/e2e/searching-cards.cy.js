@@ -43,8 +43,10 @@ describe('home page', () => {
     cy.get("#search-btn").click()
     cy.get('#sortBy').select("Más caras primero")
     cy.get('.filter-form > .btn-primary').click()
-    cy.get('#productRow571158 > :nth-child(4) > .row > .col-md-8 > :nth-child(1) > a').click()
+    cy.get('.table-body').children(".row.no-gutters").children(".d-none.col").contains("1")
+    cy.get('.table-body').children(".row.no-gutters").siblings().first().children(".col").children(".row.no-gutters")
+    .children().siblings().first().children().children().siblings().first().click()
     cy.screenshot()
-    })
+  })
 
 })
