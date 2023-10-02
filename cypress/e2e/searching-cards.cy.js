@@ -38,7 +38,7 @@ describe('home page', () => {
     cy.get(".table-striped").should("exist")
   })
 
-  it.only("Most expensive and Description screenshot",()=>{
+  it("Most expensive and Description screenshot",()=>{
     cy.get("#ProductSearchInput").type("Fenrir")
     cy.get("#search-btn").click()
     cy.get('#sortBy').select("Más caras primero")
