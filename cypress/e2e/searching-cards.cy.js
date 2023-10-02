@@ -85,7 +85,7 @@ describe('home page', () => {
     cy.get('.my-3').children().last().click()
   })
 
-  it.only("Cheap Playmats",()=>{
+  it("Cheap Playmats",()=>{
     cy.get("#ProductSearchInput").type("Magician")
     cy.get("#search-btn").click()
     cy.get('.filter-form > :nth-child(1)').children().eq(1).select("Tapetes")
