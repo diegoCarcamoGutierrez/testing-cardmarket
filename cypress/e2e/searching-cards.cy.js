@@ -43,10 +43,18 @@ describe('home page', () => {
     cy.get("#search-btn").click()
     cy.get('#sortBy').select("Más caras primero")
     cy.get('.filter-form > .btn-primary').click()
-    cy.get('.table-body').children(".row.no-gutters").children(".d-none.col").contains("1")
     cy.get('.table-body').children(".row.no-gutters").siblings().first().children(".col").children(".row.no-gutters")
     .children().siblings().first().children().children().siblings().first().click()
     cy.screenshot()
+  })
+
+  it.only("Most expensive and Description screenshot v2",()=>{
+    cy.get("#ProductSearchInput").type("Fenrir")
+    cy.get("#search-btn").click()
+    cy.get('#sortBy').select("Más caras primero")
+    cy.get('.filter-form > .btn-primary').click()
+    cy.get('.table-body').children(".row.no-gutters").eq(0).children().eq(3).children().children().children().children().eq(0)
+    .click()
   })
 
 })
