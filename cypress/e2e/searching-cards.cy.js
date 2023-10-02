@@ -1,9 +1,10 @@
-const { it } = require("mocha")
+
 
 describe('home page', () => {
 
   beforeEach(()=>{
     cy.visit("https://www.cardmarket.com/es/YuGiOh")
+    cy.getAllCookies()
   })
   
 
@@ -60,10 +61,36 @@ describe('home page', () => {
     cy.screenshot()
   })
 
-  it.only("Fith element from the fith page",()=>{
+  it("Fith element from the fith page",()=>{
     cy.get("#ProductSearchInput").type("Magician")
     cy.get("#search-btn").click()
-    cy.get('.col-12 > .d-flex > .ms-3').click()
+    cy.get('.col-12 > .d-flex').then(count=>{
+      for (let index=0; index<4; index ++){
+        cy.get('.col-12 > .d-flex').children().eq(2).click()
+      }
+    })
+    cy.get('.table-body').children(".row.no-gutters").eq(4).children().eq(3).children().children().children().children().eq(0)
+    .click()
+    
+  })
+
+  it("Grid View fith page",()=>{
+    cy.get("#ProductSearchInput").type("Magician")
+    cy.get("#search-btn").click()
+    cy.get('.col-12 > .d-flex').then(count=>{
+      for (let index=0; index<4; index ++){
+        cy.get('.col-12 > .d-flex').children().eq(2).click()
+      }
+    })
+    cy.get('.my-3').children().last().click()
+  })
+
+  it.only("Cheap Playmats",()=>{
+    cy.get("#ProductSearchInput").type("Magician")
+    cy.get("#search-btn").click()
+    cy.get('.filter-form > :nth-child(1)').children().eq(1).select("Tapetes")
+    cy.get('.filter-form > .btn-primary').click()
+    cy.get('.my-3').children().last().click()
   })
 
 })
