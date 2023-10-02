@@ -38,4 +38,13 @@ describe('home page', () => {
     cy.get(".table-striped").should("exist")
   })
 
+  it.only("Most expensive and Description screenshot",()=>{
+    cy.get("#ProductSearchInput").type("Fenrir")
+    cy.get("#search-btn").click()
+    cy.get('#sortBy').select("Más caras primero")
+    cy.get('.filter-form > .btn-primary').click()
+    cy.get('#productRow571158 > :nth-child(4) > .row > .col-md-8 > :nth-child(1) > a').click()
+    cy.screenshot()
+    })
+
 })
