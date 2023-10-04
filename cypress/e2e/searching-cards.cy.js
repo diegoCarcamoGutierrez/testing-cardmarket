@@ -93,4 +93,9 @@ describe('home page', () => {
     cy.get('.my-3').children().last().click()
   })
 
+  it.only("autocomplete",()=>{
+    cy.get("#ProductSearchInput").type("Mag")
+    cy.wait(2000)
+    cy.get("#AutoCompleteResult").children().eq(0).click()
+  })
 })
